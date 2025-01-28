@@ -1,10 +1,9 @@
 require("dotenv").config();
 const express = require("express");
+const usersRoutes = require("./src/routes/usersRoutes");
+const webhookRoutes = require("./src/routes/webhookRoutes");
 const knex = require("knex");
-const knexConfig = require("./knexfile")[process.env.NODE_ENV || "development"];
-
-// Create a Knex instance
-const db = knex(knexConfig);
+const db = require("./src/db");
 
 // Test the database connection on server start
 db.raw('SELECT 1+1 AS result')
@@ -19,6 +18,11 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// user routes
+app.use("/api/users", usersRoutes);
+app.use("/api/webhook", webhookRoutes);
+
 
 app.get("/", (req, res) => res.send("Money Transfer App Backend"));
 
