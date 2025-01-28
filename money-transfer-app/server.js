@@ -2,6 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const usersRoutes = require("./src/routes/usersRoutes");
 const webhookRoutes = require("./src/routes/webhookRoutes");
+const transferRoutes = require("./src/routes/transferRoutes");
+const cors = require("cors");
 const knex = require("knex");
 const db = require("./src/db");
 
@@ -22,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 // user routes
 app.use("/api/users", usersRoutes);
 app.use("/api/webhook", webhookRoutes);
+app.use("/api/transfers", transferRoutes);
 
 
 app.get("/", (req, res) => res.send("Money Transfer App Backend"));

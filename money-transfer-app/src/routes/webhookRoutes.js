@@ -1,9 +1,9 @@
 const express = require("express");
-const { handleDepositNotification } = require("../controllers/webhookController");
+const { handleTransferNotification } = require("../controllers/webhookController");
 
 const router = express.Router();
 
-// Webhook route to listen for deposit notifications
-router.post("/deposit-webhook", handleDepositNotification);
+// Webhook endpoint for transfer notifications
+router.post("/", handleTransferNotification);
 
 module.exports = router;
