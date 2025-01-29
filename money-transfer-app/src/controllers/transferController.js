@@ -2,7 +2,7 @@ const axios = require("axios");
 
 const initiateBankTransfer = async (req, res) => {
   try {
-    const { amount, bank, bank_code, account_number, narration, reference } = req.body;
+    const { amount, bank, bank_code, account_number, status, reference } = req.body;
 
     // Validate required fields
     if (!amount || !bank || !bank_code || !account_number || !reference) {
@@ -16,7 +16,7 @@ const initiateBankTransfer = async (req, res) => {
       bank,
       bank_code,
       account_number,
-      narration: narration || "Payment Transfer",
+      status: status || "Payment Transfer",
       reference,
       currency: "NGN", // Assuming Nigerian currency
     };

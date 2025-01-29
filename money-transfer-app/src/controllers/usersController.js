@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const db = require("../db");
-const generateToken = require("../utils/generateToken");
-const generateAccountNumber = require("../utils/generateAccountNumber");
+const { generateToken } = require("../utils/generateToken");
+const {generateAccountNumber} = require("../utils/generateAccountNumber");
 
 const signup = async (req, res) => {
   const { name, email, password } = req.body;
