@@ -84,7 +84,6 @@ const login = async (req, res) => {
   }
 };
 
-
 // Get User Profile Controller
 const getUserProfile = async (req, res) => {
   try {

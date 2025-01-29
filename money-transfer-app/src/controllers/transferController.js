@@ -18,7 +18,7 @@ const initiateBankTransfer = async (req, res) => {
       account_number,
       status: status || "Payment Transfer",
       reference,
-      currency: "NGN", // Assuming Nigerian currency
+      currency: "NGN",
     };
 
     // Make the API request to Raven Atlas

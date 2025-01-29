@@ -20,7 +20,7 @@ describe("generateToken", () => {
   const mockSecret = "testsecret";
 
   beforeAll(() => {
-    process.env.JWT_SECRET = mockSecret; // Set a test JWT secret
+    process.env.JWT_SECRET = mockSecret; // Sets a test JWT secret
   });
 
   it("should generate a valid token", () => {
